@@ -17,7 +17,7 @@ When installing telescope, you need to also install `ripgrep`
 $ sudo app install ripgrep
 ```
 
-## 2 - Refactoring
+## 2 - Install Font 
 To install JetBrains Mono Font: <br> 
 Extract the `.zip` files in folder, then move the `.ttf` files to destination folder.
 `~/.local/share/fonts` or `/usr/share/fonts` for system-wide install 
@@ -52,3 +52,12 @@ require("lazy").setup("plugins")
 LazyVim `config` is executed when the plugin loads. 
 The default implementation will automatically run `require(MAIN).setup(opts)`.
 This will allow us to keep our `init.lua` file even cleaner by moving the plugin specific `.setup()` calls to their respective plugin file.
+
+## 4 - LSP Setup 
+Language Server Protocol (LSP) enables language intelligence features. 
+To do this we will require 3 plugins: 
+`Mason` - helps manage and install language servers
+`Mason-lspconfig` - help bridge between lsp and lsp-config
+`nvim-lspocnfig` - connects neovim to language servers
+
+After this is done be sure to check your language server status by using `:LspInfo`
