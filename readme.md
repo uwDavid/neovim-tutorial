@@ -61,3 +61,13 @@ To do this we will require 3 plugins:
 `nvim-lspocnfig` - connects neovim to language servers
 
 After this is done be sure to check your language server status by using `:LspInfo`
+
+## 5 - None-LS
+None-LS replaces Null-LS to enable linting and formatting. 
+It works by wrapping cmd line tools in a lsp.
+
+Check configurations in `lua/plugins/none-ls.lua`
+
+Also ensure to use `:Mason` to install the required linters and formatters. 
+Note: <br> 
+Linters provide syntax analysis and formatting, while formatters only format the code. 
