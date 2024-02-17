@@ -21,7 +21,8 @@ vim.o.mouse = 'a'
 vim.opt.tabstop = 4 
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-
+-- ensure 8 lines at bottom
+vim.opt.scrolloff = 8
 -- :help vim.highlight.on_yank()
 local highlight_group = vim.api.nvim_create_augroup('YankHighLight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
