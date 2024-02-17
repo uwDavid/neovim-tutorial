@@ -5,11 +5,6 @@ local function my_on_attach(bufnr)
 	-- default mappings
 	api.config.mappings.default_on_attach(bufnr)
 	-- custom mappings
-	-- vim.keymap.set('n', '<C-t>', api.tree.toggle)
-	vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<cr>", { silent = true, noremap = true })
-	-- switch between window and editor
-	vim.keymap.set("n", "<C-h>", "<C-w>h")
-	vim.keymap.set("n", "<C-l>", "<C-w>l")
 end
 
 return {
@@ -19,7 +14,15 @@ return {
 	lazy = false,
 	config = function()
 		require("nvim-tree").setup({
-			on_attach = my_on_attach,
+			-- on_attach = my_on_attach,
 		})
+		local api = require("nvim-tree.api")
+		vim.keymap.set("n", "<C-t>", api.tree.toggle)
+		vim.keymap.set("n", "q", api.tree.close)
+		-- vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<cr>", { silent = true, noremap = true })
+		-- switch between window and editor
+		vim.keymap.set("n", "<C-h>", "<C-w>h")
+		vim.keymap.set("n", "<C-l>", "<C-w>l")
+		-- W - collapse folders
 	end,
 }

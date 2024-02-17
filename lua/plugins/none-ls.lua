@@ -9,9 +9,13 @@ return {
 				null_ls.builtins.formatting.stylua,
 				-- javascript, typescript, json
 				null_ls.builtins.formatting.biome,
+				-- golang
+				null_ls.builtins.formatting.gofumpt,
+				null_ls.builtins.formatting.goimports,
 				-- python
 				null_ls.builtins.formatting.black,
-				null_ls.builtins.formatting.isort,
+				-- misc
+				null_ls.builtins.formatting.yamlfmt,
 			},
 		})
 
