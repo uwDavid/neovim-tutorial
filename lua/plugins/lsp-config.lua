@@ -13,7 +13,7 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				-- install language servers here
-				ensure_installed = { "lua_ls", "tsserver" },
+				ensure_installed = { "lua_ls", "ts_ls", "pyright" },
 			})
 		end,
 	},
@@ -24,8 +24,16 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 			-- set up language servers here
-			lspconfig.lua_ls.setup({})
-			lspconfig.tsserver.setup({})
+			lspconfig.lua_ls.setup({
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = {"vim"},
+						},
+					},
+				},
+			})
+			lspconfig.ts_ls.setup({})
 			-- to provide info on buffer from language server
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			-- gd - go to defintion
